@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
-  base: './',
+// GitHub Pages 项目页地址为 /<仓库名>/，开发时仍用根路径
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/Psychoanalytic-test/',
   plugins: [react()],
   server: {
     host: true,
@@ -14,4 +15,4 @@ export default defineConfig({
     port: 4173,
     strictPort: false,
   },
-})
+}))

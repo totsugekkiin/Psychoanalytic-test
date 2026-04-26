@@ -277,18 +277,6 @@ export default function App() {
                         <div className="h-full bg-rose-500" style={{ width: '100%' }}></div>
                       </div>
                     </div>
-                    <div>
-                      <div className="flex justify-between text-xs mb-1">
-                        <span className="text-zinc-400">社会面具厚度</span>
-                        <span className="text-emerald-500">已击穿</span>
-                      </div>
-                      <div className="h-1.5 w-full bg-zinc-800">
-                        <div
-                          className="h-full bg-emerald-500/20 border border-emerald-500/50 border-dashed"
-                          style={{ width: '100%' }}
-                        ></div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

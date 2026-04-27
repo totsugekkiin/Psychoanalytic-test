@@ -31,7 +31,7 @@ const options = [
 ]
 
 export default function App() {
-  const [step, setStep] = useState('landing') // landing, quiz, loading, result
+  const [step, setStep] = useState('landing') // landing, notice, quiz, loading, result
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loadingText, setLoadingText] = useState('正在初始化潜意识模型...')
   const [progress, setProgress] = useState(0)
@@ -85,10 +85,10 @@ export default function App() {
   useEffect(() => {
     if (step === 'loading') {
       const texts = [
-        '正在提取潜意识防御机制指标...',
-        '正在比对荣格八维人格模型...',
-        '发现异常情绪峰值，正在进行深度溯源...',
-        '正在重构童年期依恋关系图谱...',
+        '正在提取机制指标...',
+        '比对荣格八维人格模型...',
+        '正在进行深度溯源...',
+        '正在重构关系图谱...',
         '正在生成最终心理学诊断报告...',
       ]
 
@@ -149,16 +149,52 @@ export default function App() {
             </p>
             <button
               type="button"
-              onClick={() => setStep('quiz')}
+              onClick={() => setStep('notice')}
               className="group relative px-8 py-4 bg-zinc-100 text-zinc-950 font-bold text-lg rounded-none hover:bg-rose-500 hover:text-white transition-all duration-300 flex items-center gap-3 overflow-hidden"
             >
-              <span className="relative z-10">启动分析矩阵</span>
+              <span className="relative z-10">开始分析</span>
               <ChevronRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
               <div className="absolute inset-0 w-0 bg-rose-500 group-hover:w-full transition-all duration-500 ease-out z-0"></div>
             </button>
             <p className="mt-6 font-mono text-xs text-zinc-600 uppercase tracking-widest">
               
             </p>
+          </div>
+        )}
+
+        {/* 1.5 声明页 Notice Page */}
+        {step === 'notice' && (
+          <div className="max-w-xl w-full flex flex-col items-center text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="w-full border border-zinc-800 bg-zinc-900/40 p-6 md:p-8">
+              <div className="inline-block px-3 py-1 bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs font-mono mb-5">
+                IMPORTANT NOTICE // 重要声明
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">作答建议</h2>
+              <div className="text-left text-zinc-300 leading-relaxed space-y-3">
+                <p>
+                  - 建议第一次<strong>认真作答</strong>，它会作为你的基线结果。
+                </p>
+                <p>
+                  - 第二次若只是为了“测试/验证”，由于题目本身存在投影与情境偏移，结果的<strong>偏移误差会很大</strong>，请勿过度解读。
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setStep('quiz')}
+                className="mt-6 w-full group relative px-8 py-4 bg-zinc-100 text-zinc-950 font-bold text-lg rounded-none hover:bg-rose-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden"
+              >
+                <span className="relative z-10">已知晓，进入问卷</span>
+                <ChevronRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                <div className="absolute inset-0 w-0 bg-rose-500 group-hover:w-full transition-all duration-500 ease-out z-0"></div>
+              </button>
+              <button
+                type="button"
+                onClick={() => setStep('landing')}
+                className="mt-3 w-full px-6 py-3 border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors text-sm font-medium"
+              >
+                返回
+              </button>
+            </div>
           </div>
         )}
 
@@ -240,7 +276,7 @@ export default function App() {
               </div>
 
               <div className="inline-block px-3 py-1 bg-rose-500/10 text-rose-500 border border-rose-500/20 text-xs font-mono mb-6">
-                DIAGNOSIS COMPLETE // 诊断完成
+                DIAGNOSIS COMPLETE // 完成
               </div>
 
               <h2 className="text-3xl md:text-5xl font-black mb-2 tracking-tight text-white">重度恋母倾向</h2>
@@ -270,8 +306,8 @@ export default function App() {
                     </div>
                     <div>
                       <div className="flex justify-between text-xs mb-1">
-                        <span className="text-zinc-400">绝对依恋渴求</span>
-                        <span className="text-rose-500 font-bold">MAX</span>
+                        <span className="text-zinc-400">依恋渴求</span>
+                        <span className="text-rose-500 font-bold">100</span>
                       </div>
                       <div className="h-1.5 w-full bg-zinc-800">
                         <div className="h-full bg-rose-500" style={{ width: '100%' }}></div>
